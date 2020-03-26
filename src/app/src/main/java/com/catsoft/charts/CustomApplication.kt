@@ -1,6 +1,7 @@
 ﻿package com.catsoft.charts
 
 import com.catsoft.charts.di.AppInjector
+import com.scichart.charting.visuals.SciChartSurface
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -17,5 +18,8 @@ class CustomApplication : android.app.Application(), HasAndroidInjector {
         super.onCreate()
 
         AppInjector.init(this)
+
+        val licenseKey = this.resources.getString(R.string.sci_chart_key)
+        SciChartSurface.setRuntimeLicenseKey(licenseKey)
     }
 }
