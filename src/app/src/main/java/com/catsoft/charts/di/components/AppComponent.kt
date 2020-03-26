@@ -8,7 +8,7 @@ import javax.inject.Singleton
 import android.app.Application
 import com.catsoft.charts.CustomApplication
 import com.catsoft.charts.di.module.*
-import com.catsoft.charts.mapper.charts.ChartMapperModule
+import com.catsoft.charts.mapper.charts.PointsMapperModule
 import dagger.BindsInstance
 
 @Singleton
@@ -17,7 +17,7 @@ import dagger.BindsInstance
     AndroidInjectionModule::class,
     RepoModule::class,
     ServicesModule::class,
-    ChartMapperModule::class,
+    PointsMapperModule::class,
     MainActivityModule::class,
     ViewModelModule::class])
 interface AppComponent : AndroidInjector<DaggerApplication> {

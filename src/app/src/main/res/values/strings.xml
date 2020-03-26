@@ -1,4 +1,6 @@
 ﻿<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Charts</string>
     <string name="sci_chart_key">2xBR1/gNmEjtiKhpefuo/wRKUqUYIgmcslowJKI18i9sXyP7LR6STTIoUyCGrF+h4h/K1XPkS/yC6Jefg77myTvH6Fr9JHDBQeopmDhON12ueYDate+4+5WWpH4TocRQ4CHZxh76lEmd3X3xtxGM0UOPQvQjgAFn3OuNOM/KCLyWS9yRHrYJLMfYpvge9FltPioaXa1BEwQofuDmie7oeVBMIHF9fDR8RtIsJQAy6ym2V8HwY+9rQhZiZFUvrlE+CssxC/QlSU8MTWDVDWYOqFicnM/nRICEQANXmfInQArTmyhHfXVy5QQ5Vy/yIfz7i9P6J7hxvFSXSvMrbDze9bf6hNkl6SuYmsmejPSyKFpbpH/vFziQ21kvt14Gsfw8OWr2qNGVPoJ5DMf4y4XRs3Ga0FS6wpztBKypiRKhlsRaEBmGEoFWq0oGkP+Yegqg/MAyMAhs/0yQHTCw2VcHErlRSxa0Tc8EGTVEVoj4K9uUeI6AlnUXeQPOM5M0Q58gpp+hHrztKMk/pJAUHTK8DxJlCWcYqAr5kGMJ2ha4nTlYncmKQythyWJEU6WGk7Mbqk6GLg==</string>
+    <string name="x_axis_name">Date</string>
+    <string name="y_axis_name">Y</string>
 </resources>
