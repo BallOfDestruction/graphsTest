@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
+
+    <item android:drawable="@android:color/white"/>
+
+    <item android:bottom="150dp">
+
+        <bitmap
+            android:src="@drawable/ic_chart_img"
+            android:gravity="center"/>
+
+    </item>
+
+    <item android:top="150dp">
+
+        <bitmap
+            android:src="@drawable/welcome_back_text"
+            android:gravity="center"/>
+
+    </item>
+
+</layer-list>

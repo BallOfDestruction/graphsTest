@@ -1,0 +1,118 @@
+apply plugin: "com.android.application"
+
+apply plugin: "kotlin-android"
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+apply plugin: "kotlin-kapt"
+
+android {
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "com.catsoft.main_chart"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_6
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // UI components
+    implementation 'androidx.core:core-ktx:1.2.0'
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+
+    implementation 'com.google.android.material:material:1.1.0'
+
+    // Lifecycle component
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
+
+    // Rx components
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.4.0'
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+
+    implementation 'com.jakewharton.rxbinding2:rxbinding:2.2.0'
+
+    // Image worker component
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+
+    // Navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
+
+    // dagger
+    implementation "com.google.dagger:dagger:$dagger_version"
+
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    // room
+//    implementation "androidx.room:room-runtime:$room_version"
+//
+//    implementation "androidx.room:room-rxjava2:$room_version"
+//
+//    implementation "android.arch.persistence.room:rxjava2:1.1.1"
+//
+//    kapt "android.arch.persistence.room:compiler:$room_version"
+//
+//    kapt "androidx.room:room-compiler:$room_version"
+
+    // Declare SciChart libraries as module dependencies
+    implementation (group: 'com.scichart.library', name: 'core', version: scichart_version, ext: 'aar')
+
+    implementation (group: 'com.scichart.library', name: 'data', version: scichart_version, ext: 'aar')
+
+    implementation (group: 'com.scichart.library', name: 'drawing', version: scichart_version, ext: 'aar')
+
+    implementation (group: 'com.scichart.library', name: 'charting3d', version: scichart_version, ext: 'aar')
+
+    implementation (group: 'com.scichart.library', name: 'charting', version: scichart_version, ext: 'aar')
+
+    implementation (group: 'com.scichart.library', name: 'extensions', version: scichart_version, ext: 'aar')
+
+    implementation (group: 'com.scichart.library', name: 'extensions3d', version: scichart_version, ext: 'aar')
+}
