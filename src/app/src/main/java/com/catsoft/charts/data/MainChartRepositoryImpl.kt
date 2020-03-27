@@ -22,7 +22,7 @@ class MainChartRepositoryImpl(private val scheduler: Scheduler = Schedulers.io()
     private fun getNextValue() : Double {
         val nextValue = Random.nextDouble(-1.0, 1.0)
         val answer = _lastValue + nextValue
-        _lastValue = nextValue
+        _lastValue = answer
         return answer
     }
 }
