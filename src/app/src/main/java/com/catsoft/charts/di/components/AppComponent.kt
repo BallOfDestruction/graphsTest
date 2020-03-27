@@ -16,7 +16,6 @@ import dagger.BindsInstance
     FragmentBuilderModule::class,
     AndroidInjectionModule::class,
     RepoModule::class,
-    ServicesModule::class,
     PointsMapperModule::class,
     MainActivityModule::class,
     ViewModelModule::class])

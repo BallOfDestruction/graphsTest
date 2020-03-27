@@ -9,6 +9,7 @@ import com.catsoft.charts.R
 import com.catsoft.charts.databinding.FragmentMainChartBinding
 import com.catsoft.charts.di.Injectable
 import com.catsoft.charts.ui.base.BaseFragment
+import com.catsoft.charts.utils.getColor
 import com.catsoft.charts.utils.observe
 import com.scichart.charting.model.dataSeries.XyDataSeries
 import com.scichart.charting.visuals.SciChartSurface
@@ -16,11 +17,20 @@ import com.scichart.charting.visuals.axes.AxisTitlePlacement
 import com.scichart.charting.visuals.axes.IAxis
 import com.scichart.charting.visuals.pointmarkers.EllipsePointMarker
 import com.scichart.charting.visuals.renderableSeries.IRenderableSeries
-import com.scichart.drawing.utility.ColorUtil
 import com.scichart.extensions.builders.SciChartBuilder
 import java.util.*
 
 class MainChartFragment : BaseFragment<FragmentMainChartBinding>(), Injectable {
+
+    private val yAxisMinimumVisibleRange = -5.0
+    private val yAxisMaximumVisibleRange = 5.0
+
+    private val seriesPointSizeWidth = 8
+    private val seriesPointSizeHeight = 8
+    private val seriesPointStrokeThickness = 1.3F
+
+    private val xAxisSecondLeftOffset = -10
+    private val xAxisSecondRightOffset = 30
 
     private lateinit var surface: SciChartSurface
 
@@ -58,16 +68,16 @@ class MainChartFragment : BaseFragment<FragmentMainChartBinding>(), Injectable {
 
         initYAxis()
 
-        initZeroLine()
-
         initModifiers()
 
         initDataSeries()
+
+        initZeroLine()
     }
 
     private fun initXAxis() {
-        val visibleRangeMin = Calendar.getInstance().apply { this.add(Calendar.SECOND, -10) }.time
-        val visibleRangeMax = Calendar.getInstance().apply { this.add(Calendar.SECOND, 30) }.time
+        val visibleRangeMin = Calendar.getInstance().apply { this.add(Calendar.SECOND, xAxisSecondLeftOffset) }.time
+        val visibleRangeMax = Calendar.getInstance().apply { this.add(Calendar.SECOND, xAxisSecondRightOffset) }.time
 
         val xAxis: IAxis = sciChartBuilder.newDateAxis()
             .withVisibleRange(visibleRangeMin, visibleRangeMax)
@@ -78,11 +88,8 @@ class MainChartFragment : BaseFragment<FragmentMainChartBinding>(), Injectable {
     }
 
     private fun initYAxis() {
-        val yMin = -5.0
-        val yMax = 5.0
-
         val yAxis: IAxis = sciChartBuilder.newNumericAxis()
-            .withVisibleRange(yMin, yMax)
+            .withVisibleRange(yAxisMinimumVisibleRange, yAxisMaximumVisibleRange)
             .withAxisTitle(getString(R.string.y_axis_name))
             .withAxisTitlePlacement(AxisTitlePlacement.Left)
             .build()
@@ -111,20 +118,17 @@ class MainChartFragment : BaseFragment<FragmentMainChartBinding>(), Injectable {
     private fun initDataSeries() {
         val pointMarker =
             sciChartBuilder.newPointMarker(EllipsePointMarker())
-                .withSize(5, 5)
-                .withStroke(ColorUtil.argb(255, 176, 196, 222), 2f)
-                .withFill(ColorUtil.argb(255, 70, 130, 180))
+                .withSize(seriesPointSizeWidth, seriesPointSizeHeight)
+                .withStroke(getColor(R.color.scatteredPointMarkerFill), seriesPointStrokeThickness)
+                .withFill(getColor(R.color.scatteredPointMarkerStroke))
                 .build()
 
-
         dataSeries = XyDataSeries(Date::class.java, Double::class.javaObjectType)
-
-        dataSeries.append(Calendar.getInstance().time, 0.0)
 
         val scatterSeries: IRenderableSeries = sciChartBuilder.newScatterSeries()
             .withDataSeries(dataSeries)
             .withPointMarker(pointMarker)
-            .withStrokeStyle(ColorUtil.argb(0xFF, 0x27, 0x9B, 0x27))
+            .withStrokeStyle(getColor(R.color.scatteredPointStroke))
             .build()
 
         surface.renderableSeries.add(scatterSeries)

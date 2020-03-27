@@ -6,4 +6,8 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="transparent">#00000000</color>
+
+    <color name="scatteredPointStroke">#FF279B27</color>
+    <color name="scatteredPointMarkerFill">#4682b4</color>
+    <color name="scatteredPointMarkerStroke">#b0c4de</color>
 </resources>
